@@ -1,5 +1,6 @@
 package com.example.razv
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         btn = findViewById(R.id.button)
         btn2 = findViewById(R.id.button2)
-            //btn.setOnClickListener(setOnClickListener.this.MainActivity2)\\
+        btn.setOnClickListener{
+            startActivity(Intent(this,MainActivity2::class.java))}
     }
 }
