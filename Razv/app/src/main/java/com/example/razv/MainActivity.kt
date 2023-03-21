@@ -13,8 +13,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         btn = findViewById(R.id.button)
         btn2 = findViewById(R.id.button2)
-
+        btn2.setOnClickListener{
+            startActivity(Intent(this,MainActivity3::class.java))}
         btn.setOnClickListener{
             startActivity(Intent(this,MainActivity2::class.java))}
+
     }
 }
