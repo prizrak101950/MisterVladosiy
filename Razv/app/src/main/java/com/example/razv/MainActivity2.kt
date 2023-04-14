@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.core.view.isVisible
 
 class MainActivity2 : AppCompatActivity() {
     lateinit var btn7 : Button
@@ -13,6 +14,9 @@ class MainActivity2 : AppCompatActivity() {
         btn7 = findViewById(R.id.btn7)
         btn7.setOnClickListener{
             startActivity(Intent(this,MainActivity::class.java))}
+        if (level=="2"){
+
+
 
     }
 }
