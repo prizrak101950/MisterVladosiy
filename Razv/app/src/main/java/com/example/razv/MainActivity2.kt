@@ -14,7 +14,7 @@ class MainActivity2 : AppCompatActivity() {
         btn7 = findViewById(R.id.btn7)
         btn7.setOnClickListener{
             startActivity(Intent(this,MainActivity::class.java))}
-        if (level=="2"){
+        //if (level=="2"){
 
 
 

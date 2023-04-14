@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
         btn = findViewById(R.id.button)
         btn2 = findViewById(R.id.button2)
         btn3 = findViewById(R.id.button11)
-        btn4 = findViewById(R.id.button4)
         btn2.setOnClickListener{
             startActivity(Intent(this,MainActivity3::class.java))}
         btn.setOnClickListener{
@@ -30,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             btn3.isVisible=true
             btn3.setOnClickListener{
                 startActivity(Intent(this,MainActivity3::class.java))}
-
 
         }
 
