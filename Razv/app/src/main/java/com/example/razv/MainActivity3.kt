@@ -16,6 +16,8 @@ class MainActivity3 : AppCompatActivity() {
     lateinit var btn8 : Button
     lateinit var btn9 : Button
     var questionNo = 0
+    var question2 = 0
+    var questions2 = arrayOf<String>("Когда мы прикладываем ракушку к уху мы слышим \n\n 1)шум моря \n\n 2)Шум своей крови \n\n 3)Шум улицы \n\n 4)Свой искажённый голос минуту назад")
     var questions = arrayOf<String>("У слонов с возрастом стираются... \n\n 1)Бивни \n\n 2)Память \n\n 3)Ластик \n" +
             "\n" +
             " 4)Зубы"," Самый сильный орган в теле человека? \n\n 1)Язык \n\n 2)Почки \n\n 3)Глаз \n\n 4)Нижняя челюсть",
