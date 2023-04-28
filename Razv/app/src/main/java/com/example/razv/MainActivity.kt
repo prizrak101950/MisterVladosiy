@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btn : Button
     lateinit var btn2 : Button
     lateinit var btn3 : Button
+    lateinit var btn11 : Button
     private var playButton4 : ImageView? =null
     private var mPlayer: MediaPlayer? =null
     var count=0
@@ -22,13 +23,22 @@ class MainActivity : AppCompatActivity() {
         btn = findViewById(R.id.button)
         btn2 = findViewById(R.id.button2)
         btn3 = findViewById(R.id.button11)
-        btn2.setOnClickListener{
-            startActivity(Intent(this,MainActivity3::class.java))}
-        btn.setOnClickListener{
-            startActivity(Intent(this,MainActivity2::class.java))}
-
-
         val  level=intent.extras?.getString("key")
+        btn3.setOnClickListener{
+                val i=Intent(this,MainActivity3::class.java)
+                i.putExtra("lev",level)
+                startActivity(i)}
+        btn2.setOnClickListener{
+            val i=Intent(this,MainActivity3::class.java)
+            i.putExtra("lev",level)
+            startActivity(i)}
+        btn.setOnClickListener{
+            val i=Intent(this,MainActivity2::class.java)
+            i.putExtra("lev",level)
+            startActivity(i)}
+
+
+
         if (level=="2"){
 
             btn2.isVisible=false
