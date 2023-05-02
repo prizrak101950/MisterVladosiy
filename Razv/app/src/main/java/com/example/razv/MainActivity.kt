@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.view.isVisible
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btn2 : Button
     lateinit var btn3 : Button
     lateinit var btn11 : Button
+    lateinit var textView: TextView
     private var playButton4 : ImageView? =null
     private var mPlayer: MediaPlayer? =null
     var count=0
@@ -23,10 +25,10 @@ class MainActivity : AppCompatActivity() {
         btn = findViewById(R.id.button)
         btn2 = findViewById(R.id.button2)
         btn3 = findViewById(R.id.button11)
+        textView = findViewById(R.id.textView2)
         val  level=intent.extras?.getString("key")
         btn3.setOnClickListener{
                 val i=Intent(this,MainActivity3::class.java)
-                i.putExtra("lev",level)
                 startActivity(i)}
         btn2.setOnClickListener{
             val i=Intent(this,MainActivity3::class.java)
@@ -39,12 +41,20 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        if (level=="2"){
+        if (level=="2") {
 
-            btn2.isVisible=false
-            btn3.isVisible=true
-            btn3.setOnClickListener{
-                startActivity(Intent(this,MainActivity3::class.java))}
+            btn2.isVisible = false
+            btn3.isVisible = true
+            btn3.setOnClickListener {
+                startActivity(Intent(this, MainActivity3::class.java))
+            }
+
+        }
+        if (level=="2"){
+            textView.text="Фактокоины:1500"
+
+
+
 
         }
         mPlayer=MediaPlayer.create(this,R.raw.pesenka)
@@ -68,6 +78,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
     private fun stopPlay() {
         mPlayer!!.stop()
