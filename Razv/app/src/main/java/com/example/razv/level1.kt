@@ -2,6 +2,7 @@ package com.example.razv
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class level1 : Fragment() {
@@ -20,6 +23,7 @@ class level1 : Fragment() {
     lateinit var btn8 : Button
     lateinit var btn9 : Button
     var questionNo = 0
+    private val myDocRef: DocumentReference = FirebaseFirestore.getInstance().document("game/progress")
 
     var questions = listOf<String>("У слонов с возрастом стираются... \n\n 1)Бивни \n\n 2)Память \n\n 3)Ластик \n" +
             "\n" +
@@ -89,6 +93,34 @@ class level1 : Fragment() {
         }
 
     }
+//    private fun write_bd(collection:String){
+//        myDocRef?.get()?.addOnSuccessListener{ result ->
+//            if(result.exists()) run {
+//                val current_level: String? = result.getString(collection)
+//                level=current_level.toString()
+//            }
+//        }
+//            ?.addOnFailureListener { exception ->
+//                Log.w("firebase", "Error getting documents.", exception)
+//            }
+//
+//        var next=Integer.parseInt(level)
+//        next++
+//        level=next.toString()
+//
+//        val dataSave:HashMap<String,String> = HashMap<String,String>()
+//        dataSave.put("level",level)
+//
+//        myDocRef.set(dataSave).addOnCompleteListener { task->
+//            if(task.isSuccessful()){
+//                Log.d("firebase", "Successful.")
+//            }
+//            else  Log.d("firebase", "Error. ${task.exception}")
+//        }
+//
+//
+//    }
+
 
 
 }
