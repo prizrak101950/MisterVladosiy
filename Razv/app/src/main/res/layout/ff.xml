@@ -33,7 +33,7 @@
         android:layout_width="211dp"
         android:layout_height="407dp"
         android:layout_gravity="center"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="115dp"
         app:srcCompat="@drawable/rys" />
 
     <Button
@@ -55,14 +55,5 @@
         android:layout_marginTop="1dp"
         android:layout_gravity="center"
         />
-    <Button
-        android:id="@+id/button11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#EC1F1F"
-        android:text="2 уровень"
-        android:layout_marginTop="1dp"
-        android:layout_gravity="center"
-        android:visibility="gone" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

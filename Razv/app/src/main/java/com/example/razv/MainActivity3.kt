@@ -16,59 +16,33 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity3 : AppCompatActivity() {
-    private val dataModel:DataModel by viewModels()
-    private val myDocRef: DocumentReference = FirebaseFirestore.getInstance().document("game/progress")
-    var level:String="1"
+    lateinit var btn:Button
+    var current_level=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
-        write_bd("level")
-
-
+        btn=findViewById(R.id.button14)
+        Geting_data()
+        btn.setOnClickListener{
+            startActivity(Intent(this,MainActivity::class.java))
+        }
 
         }
 
-    private fun write_bd(collection:String){
-        myDocRef?.get()?.addOnSuccessListener{ result ->
-            if(result.exists()) run {
-                val current_level: String? = result.getString(collection)
-                level=current_level.toString()
-            }
-        }
-            ?.addOnFailureListener { exception ->
-                Log.w("firebase", "Error getting documents.", exception)
-            }
 
-        var next=Integer.parseInt(level)
-        next++
-        level=next.toString()
-
-        val dataSave:HashMap<String,String> = HashMap<String,String>()
-        dataSave.put("level",level)
-
-        myDocRef.set(dataSave).addOnCompleteListener { task->
-            if(task.isSuccessful()){
-                Log.d("firebase", "Successful.")
-            }
-            else  Log.d("firebase", "Error. ${task.exception}")
-        }
-        dataModel.level.value=level
-        when(level){
-            "1"->supportFragmentManager.beginTransaction().replace(R.id.cont,level1()).commit()
-            "2"->supportFragmentManager.beginTransaction().replace(R.id.cont,level2()).commit()
-            "0"->supportFragmentManager.beginTransaction().replace(R.id.cont,level1()).commit()
-        }
-
-    }
-
-
-    private fun Geting_data(themes:String):ArrayList<ViewModel>{
+    private fun Geting_data():ArrayList<ViewModel>{
         val data = ArrayList<ViewModel>()
-        val myDocRef: DocumentReference = FirebaseFirestore.getInstance().document("themes/$themes")
+        val myDocRef: DocumentReference = FirebaseFirestore.getInstance().document("game/progress")
+        supportFragmentManager.beginTransaction().replace(R.id.con,zaglushka()).commit()
         myDocRef?.get()?.addOnSuccessListener{ result ->
             if(result.exists()) run {
+               current_level = result.getString("level").toString()
 
-
+                when(current_level){
+                    "1"->supportFragmentManager.beginTransaction().replace(R.id.con,level1()).commit()
+                    "2"->supportFragmentManager.beginTransaction().replace(R.id.con,level2()).commit()
+                    else -> {Log.e("my","Уровень не найден")}
+                }
 
             }
         }
@@ -78,6 +52,7 @@ class MainActivity3 : AppCompatActivity() {
         return data
 
     }
+
 
 
 }

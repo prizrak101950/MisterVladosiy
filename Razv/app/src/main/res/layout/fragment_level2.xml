@@ -58,7 +58,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="У слонов с возрастом стираются... \n\n 1)Бивни \n\n 2)Память \n\n 3)Ластик \n\n 4)Зубы"
+        android:text="Когда мы прикладываем ракушку к уху мы слышим \n\n 1)шум моря \n\n 2)Шум своей крови \n\n 3)Шум улицы \n\n 4)Свой искажённый голос минуту назад"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
